@@ -1,28 +1,23 @@
-package org.radkon.portal.people;
+package org.radkon.portal.people.rest;
 
-import org.radkon.portal.persistence.PersistentObject;
+import java.io.Serializable;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+public class PersonObject implements Serializable {
 
-@Entity
-@Table(name = "person")
-public class Person extends PersistentObject {
-
-    private static final long serialVersionUID = -8519668230243094633L;
+    private static final long serialVersionUID = -4912939522976602828L;
 
     private String firstname;
     private String surname;
     private String email;
 
-    protected Person() {
+    PersonObject() {
         // ok
     }
 
-    public Person(String firstname, String surname, String email) {
-        setFirstname(firstname);
-        setSurname(surname);
-        setEmail(email);
+    public PersonObject(String firstname, String surname, String email) {
+        this.firstname = firstname;
+        this.surname = surname;
+        this.email = email;
     }
 
     public String getFirstname() {

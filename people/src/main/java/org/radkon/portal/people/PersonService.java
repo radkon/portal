@@ -28,10 +28,14 @@ public class PersonService {
 
     public void delete(Person person) {
         if (person != null) {
-            final Person reference = entityManager.getReference(Person.class, person.getId());
-            if (reference != null) {
-                entityManager.remove(reference);
-            }
+            deleteById(person.getId());
+        }
+    }
+
+    public void deleteById(String personId) {
+        final Person reference = entityManager.getReference(Person.class, personId);
+        if (reference != null) {
+            entityManager.remove(reference);
         }
     }
 

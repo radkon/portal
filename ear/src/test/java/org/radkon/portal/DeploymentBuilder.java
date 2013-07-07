@@ -24,6 +24,7 @@ public final class DeploymentBuilder {
         final JavaArchive archive = ShrinkWrap.create(JavaArchive.class, "portal-persistence.jar");
         archive.addPackages(true, "org.radkon.portal.persistence");
         archive.addAsManifestResource(EmptyAsset.INSTANCE, "beans.xml");
+        archive.addAsManifestResource("persistence.xml");
         return archive;
     }
 
@@ -37,6 +38,13 @@ public final class DeploymentBuilder {
     public static JavaArchive helloModule() {
         final JavaArchive archive = ShrinkWrap.create(JavaArchive.class, "portal-hello.jar");
         archive.addPackages(true, "org.radkon.portal.hello");
+        archive.addAsManifestResource(EmptyAsset.INSTANCE, "beans.xml");
+        return archive;
+    }
+
+    public static JavaArchive peopleModule() {
+        final JavaArchive archive = ShrinkWrap.create(JavaArchive.class, "portal-people.jar");
+        archive.addPackages(true, "org.radkon.portal.people");
         archive.addAsManifestResource(EmptyAsset.INSTANCE, "beans.xml");
         return archive;
     }
